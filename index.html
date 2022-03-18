@@ -5,7 +5,12 @@
   <title>Happy Birthday Alya Dewi Aprillya</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
-
+<style>
+audio, embed {
+    position: absolute;
+    z-index: -9999;
+}
+</style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -22,6 +27,20 @@
     </div>
   </div>
 <!-- partial -->
-  
+<iframe src="HappyBirthdayMyLove.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+</iframe> 
+  <audio id="myAudio" controls autoplay>
+  <source src="HappyBirthdayMyLove.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<p id="demo"></p>
 </body>
 </html>
+<script>
+
+document.addEventListener('click', musicPlay);
+function musicPlay() {
+    document.getElementById('myAudio').play();
+    document.removeEventListener('click', musicPlay);
+}
+</script>
